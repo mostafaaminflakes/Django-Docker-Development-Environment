@@ -34,18 +34,18 @@ The compose file defines an application with two services `web` and `db`. When d
     - In your project directory, edit the `app/project1/settings.py` file.
     - Replace the `DATABASES = ...` with the following:
 
-    ```
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'dj1',
-            'USER': 'root',
-            'PASSWORD': '123456',
-            'HOST':'db',
-            'PORT':'3306',
+        ```
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.mysql',
+                'NAME': 'dj1',
+                'USER': 'root',
+                'PASSWORD': '123456',
+                'HOST':'db',
+                'PORT':'3306',
+            }
         }
-    }
-    ```
+        ```
 
     These settings are determined by the MySQL Docker image specified in `docker-compose.yml`.
 
