@@ -1,0 +1,45 @@
+version: "3.9"
+name: Django
+
+services:
+  db:
+    container_name: db
+    image: mysql:latest
+    volumes:
+      - ./data/db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: dj1
+      # MYSQL_ROOT_PASSWORD: password
+      # MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db-password
+      MYSQL_PASSWORD_FILE: /run/secrets/db-password
+    secrets:
+      - db-password
+    networks:
+      - backend
+
+  web:
+    container_name: web
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/django_app
+    command:
+      python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+    networks:
+      - backend
+
+volumes:
+  db-data:
+
+secrets:
+  db-password:
+    file: ./db/password.txt
+    name: db-password
+
+networks:
+  backend:
