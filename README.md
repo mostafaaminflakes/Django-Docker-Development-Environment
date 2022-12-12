@@ -10,22 +10,22 @@ The compose file defines an application with two services `web` and `db`. When d
 
 1. Clone the repo
 
-```
-git clone https://github.com/mostafaaminflakes/Django-Docker-Development-Environment.git
-cd Django-Docker-Development-Environment
-```
+    ```
+    git clone https://github.com/mostafaaminflakes/Django-Docker-Development-Environment.git
+    cd Django-Docker-Development-Environment
+    ```
 
 2. Build the container
 
-```
-docker compose build
-```
+    ```
+    docker compose build
+    ```
 
 3. Create a Django project
 
-```
-docker compose run --rm web django-admin startproject project1 .
-```
+    ```
+    docker compose run --rm web django-admin startproject project1 .
+    ```
 
 4. Connect the database
 
@@ -34,35 +34,35 @@ docker compose run --rm web django-admin startproject project1 .
     - In your project directory, edit the `app/project1/settings.py` file.
     - Replace the `DATABASES = ...` with the following:
 
-```
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dj1',
-        'USER': 'root',
-        'PASSWORD': '123456',
-        'HOST':'db',
-        'PORT':'3306',
+    ```
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'dj1',
+            'USER': 'root',
+            'PASSWORD': '123456',
+            'HOST':'db',
+            'PORT':'3306',
+        }
     }
-}
-```
+    ```
 
-These settings are determined by the MySQL Docker image specified in `docker-compose.yml`.
+    These settings are determined by the MySQL Docker image specified in `docker-compose.yml`.
 
 5. Deploy with docker compose
 
-```
-$ docker compose up -d
-```
+    ```
+    $ docker compose up -d
+    ```
 
 6. Run Django migrations
 
-Execute the following commands to access the `web` container in interactive mode and execute the migrations.
+    Execute the following commands to access the `web` container in interactive mode and execute the migrations.
 
-```
-docker exec -it web /bin/bash
-python manage.py migrate
-```
+    ```
+    docker exec -it web /bin/bash
+    python manage.py migrate
+    ```
 
 At this point, your Django app should be running at port 8000 on your Docker host. Navigate to `http://localhost:8000` on a web browser to see the Django welcome page.
 
