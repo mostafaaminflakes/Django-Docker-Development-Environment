@@ -29,10 +29,10 @@ docker compose run --rm web django-admin startproject project1 .
 
 4. Connect the database
 
-In this section, you set up the database connection for Django.
+    In this section, you set up the database connection for Django.
 
-1. In your project directory, edit the `app/project1/settings.py` file.
-2. Replace the `DATABASES = ...` with the following:
+    - In your project directory, edit the `app/project1/settings.py` file.
+    - Replace the `DATABASES = ...` with the following:
 
 ```
 DATABASES = {
