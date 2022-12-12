@@ -66,7 +66,7 @@ The compose file defines an application with two services `web` and `db`. When d
 
 At this point, your Django app should be running at port 8000 on your Docker host. Navigate to `http://localhost:8000` on a web browser to see the Django welcome page.
 
-# Stop and remove the containers
+## Stop and remove the containers
 
 ```
 $ docker compose down
