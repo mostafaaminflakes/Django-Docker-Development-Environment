@@ -52,7 +52,7 @@ The compose file defines an application with two services `web` and `db`. When d
 5. Deploy with docker compose
 
     ```
-    $ docker compose up -d
+    docker compose up -d
     ```
 
 6. Run Django migrations
@@ -69,5 +69,5 @@ At this point, your Django app should be running at port 8000 on your Docker hos
 ## Stop and remove the containers
 
 ```
-$ docker compose down
+docker compose down
 ```
